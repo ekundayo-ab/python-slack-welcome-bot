@@ -1,10 +1,7 @@
 import os
 import time
 from slackclient import SlackClient
-import flask
-app = flask.Flask(__name__)
 
-@app.route("/")
 # instantiate Slack & Twilio clients
 sc = SlackClient(os.environ.get('SLACK_BOT_TOKEN'))
 
