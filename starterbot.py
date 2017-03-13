@@ -15,6 +15,6 @@ if __name__ == "__main__":
                     if evt['subtype'] == 'channel_join' and 'joined' in evt['text']:
                         user_info=sc.api_call("users.info", user=evt['user'])
                         response = "Welcome <@"+user_info['user']['name']+">"+"\n"+PURPOSE
-                        sc.api_call("chat.postMessage", channel="tester", text=response, as_user=True)
+                        sc.api_call("chat.postMessage", channel="general", text=response, as_user=True)
     else:
         print "Connection Failed, invalid token?"
