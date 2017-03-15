@@ -19,10 +19,11 @@ if __name__ == "__main__":
     elif sc.rtm_connect():   
         while True:
             new_evts = sc.rtm_read()
-            for evt in new_evts:      
-                if evt['type'] == 'message' and "<@U4G8M9WEB>" in evt['text']:
-                    user_info=sc.api_call("users.info", user=evt['user'])
-                    response = "Hi, <@"+user_info['user']['name']+">"+"\n"+" I only welcome new members to the general channel."
-                    sc.api_call("chat.postMessage", channel=evt['channel'], text=response, as_user=True)
+            for evt in new_evts:
+                if 'text' in evt:      
+                    if evt['type'] == 'message' and "<@U4G8M9WEB>" in evt['text']:
+                        user_info=sc.api_call("users.info", user=evt['user'])
+                        response = "Hi, <@"+user_info['user']['name']+">"+"\n"+" I only welcome new members to the general channel."
+                        sc.api_call("chat.postMessage", channel=evt['channel'], text=response, as_user=True)
     else:
         print "Connection Failed, invalid token?"
