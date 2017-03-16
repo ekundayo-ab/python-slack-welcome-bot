@@ -19,7 +19,7 @@ if __name__ == "__main__":
                 if 'text' in evt:      
                     if evt['type'] == 'message' and "<@U4G8M9WEB>" in evt['text']:
                         user_info=sc.api_call("users.info", user=evt['user'])
-                        response = "Hi, <@"+user_info['user']['name']+">"+"\n"+" I only welcome new members to the general channel."
+                        response = "Hi, <@"+user_info['user']['name']+">"+"\n"+" I only welcome new members to the channel."
                         sc.api_call("chat.postMessage", channel=evt['channel'], text=response, as_user=True)
     else:
         print "Connection Failed, invalid token?"
