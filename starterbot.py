@@ -16,10 +16,6 @@ if __name__ == "__main__":
                         user_info=sc.api_call("users.info", user=evt['user'])
                         response = "Welcome <@"+user_info['user']['name']+">"+"\n"+PURPOSE
                         sc.api_call("chat.postMessage", channel=evt['channel'], text=response, as_user=True)
-    elif sc.rtm_connect():   
-        while True:
-            new_evts = sc.rtm_read()
-            for evt in new_evts:
                 if 'text' in evt:      
                     if evt['type'] == 'message' and "<@U4G8M9WEB>" in evt['text']:
                         user_info=sc.api_call("users.info", user=evt['user'])
