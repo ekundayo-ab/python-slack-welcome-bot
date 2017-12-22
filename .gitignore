@@ -3,7 +3,6 @@ Lib
 Scripts
 tcl
 kbot.py
-starterbot-backup.py
 print_bot_id.py
 pip_selfcheck.json
 pip-selfcheck.json
